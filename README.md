@@ -6,22 +6,48 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## How to Run this Project.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Data Base
 
-## Build
+I have created a Local Database for this Project.
+In order to GET Product Data from Apis 
+You need to have a Local db and I have used Sql Server Mangamenet Studio.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Open Sql Server Management Studio.
+Connect to the Server 
+Add Server Name : (Localdb)\LocalDBDemo
+Click Connect
 
-## Running unit tests
+To Create Local DB.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Open CMD.
+2.Create local Db by entering this command:   sqllocaldb create "LocalDBDemo"
+3.Then start local Db : sqllocaldb start"
+4.In local db Create A Table with name : Product
+5.Add following Columns 
+Product_Id	int
+title	        nvarchar(50)
+description	nvarchar(200)
+quantity	int
+price	        nchar(10)
+category	nvarchar(50)
 
-## Running end-to-end tests
+6. After Creating the table Populate it with Sample Data
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Dot Net Backend.
+
+Run this command in Vs Code: dotnet run.
+Check the port on which backend end is running from the terminal forexample: http://localhost:5016/swagger/index.html
+
+Angular FrontEnd:
+
+Run npm install or npm i first to install all the dependencies.
+Run ng serve to Run Frontend.
+
+
+
+Create local Db and populate it with data first inorder to view data in the front end app.
+
