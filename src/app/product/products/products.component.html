@@ -1,0 +1,87 @@
+<div class="main">
+    <div class="flex justify-content-between">
+    <h2>Products</h2> 
+</div>
+    <p-table [value]="products" [paginator]="true"
+    [rows]="9" selectionMode="single" [(selection)]="selectedProduct" editMode="row"
+        (onRowSelect)="onRowSelect($event)" dataKey="id" >
+        <ng-template pTemplate="header">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Category</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product >
+            <tr [pSelectableRow]="product" >
+                <td>{{ product.product_Id }}</td>
+                <td>{{ product.title }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{ product.category }}</td>
+                <td> 
+                  <button
+                  pButton 
+                  icon="pi pi-pencil"
+                  class="p-button-rounded p-button-success mr-2"  (click)="EditProduct(product)">
+                  </button>
+                </td>
+            <td>
+                  <button
+                  pButton 
+                  icon="pi pi-trash"
+                  class="p-button-rounded p-button-warning mr-2" (click)="deleteProduct(product)">
+                  </button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <div class="buttons-container" >
+        <p-button  label="Add Product" (click)="showAddModal()"></p-button>
+    </div>
+</div>
+
+
+
+<!-- Dialog For Adding and Updating Products -->
+<p-dialog header="{{modalType}} Product" [(visible)]="displayAddModal" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false" >
+    
+   <form [formGroup]="productForm">
+    <div class="field">
+        <label class=" m-4 " for="title">Id</label>
+        <p-inputNumber id="product_Id" inputId="integeronly" formControlName="product_Id"></p-inputNumber>
+    </div>
+
+    <div class="field">
+        <label class=" m-4 " for="title">Title</label>
+        <input type="text" id="title" pInputText formControlName="title"/>
+    </div>
+    <div class="field">
+        <label class="block m-4" for="price">Price</label>
+        <p-inputNumber id="price" inputId="integeronly" formControlName="price"></p-inputNumber>
+    </div>
+    <div class="field">
+        <label class="block m-4" for="description">Description</label>
+        <textarea row="5" pInputTextarea formControlName="description"></textarea>
+    </div>
+    <div class="field">
+        <label class="block m-4" for="category">Quantity</label>
+        <input id="category" type="text" pInputText formControlName="quantity"/>
+    </div>
+    <div class="field">
+        <label class="block m-4" for="category">Category</label>
+        <input id="category" type="text" pInputText formControlName="category"/>
+    </div>
+
+   </form>
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="AddEditProduct()" label="{{modalType}}" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-check" (click)="displayAddModal=false" label="Cancel" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>
