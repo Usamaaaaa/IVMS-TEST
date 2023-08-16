@@ -1,10 +1,6 @@
 How to Run this Project.
-
 Data Base
-
-I have created a Local Database for this Project.
-In order to GET Product Data from Apis 
-You need to have a Local db and I have used Sql Server Mangamenet Studio.
+I have created a Local Database for this Project.In order to GET Product Data from Apis You need to have a Local db and I have used Sql Server Mangamenet Studio.
 
 Open Sql Server Management Studio.
 Connect to the Server 
@@ -27,19 +23,10 @@ category	nvarchar(50)
 
 6. After Creating the table Populate it with Sample Data
 
-
-
-Dot Net Backend.
-
-Run this command in Vs Code: dotnet run.
-Check the port on which backend end is running from the terminal forexample: http://localhost:5016/swagger/index.html
-
 Angular FrontEnd:
 
 Run npm install or npm i first to install all the dependencies.
 Run ng serve to Run Frontend.
-
-
 
 Create local Db and populate it with data first inorder to view data in the front end app.
 
